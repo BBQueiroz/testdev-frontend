@@ -1,0 +1,70 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Adicionar Playlist</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nome" formControlName="playlistNome">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Descrição" formControlName="descricao"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div formArrayName="musicasArray">
+        <div *ngFor="let musica of musicasArray.controls; let i = index">
+          <div class="row">
+            <div class="col">
+              <mat-card-subtitle>musica {{ i + 1 }}</mat-card-subtitle>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="titulo" formControlName="titulo">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="artista" formControlName="artista">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="album" formControlName="album">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="ano" formControlName="ano">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="genero" formControlName="genero">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="addMusic()">Adicionar Música</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

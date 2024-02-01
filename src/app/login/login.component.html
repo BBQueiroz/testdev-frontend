@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-content>
+      <form>
+        <h2>Log In</h2>
+        <mat-error *ngIf="!loginValid">
+          The username and password were not recognized
+        </mat-error>
+        <mat-form-field>
+          <input matInput placeholder="usuario">
+          <mat-error>
+            Please provide a valid email username
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password">
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" >Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
